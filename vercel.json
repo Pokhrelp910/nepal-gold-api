@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/gold",
+      "dest": "/api/gold.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/gold.py"
+    }
+  ]
+}
