@@ -1,0 +1,33 @@
+name: Update Gold Rates Daily
+
+on:
+  schedule:
+    # 05:30 UTC is 11:15 AM Nepal Time (NPT is UTC + 5:45)
+    - cron: '30 5 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI anytime
+
+permissions:
+  contents: write
+
+jobs:
+  update-rates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Gold Rate Scraper
+        run: python update_gold.py
+
+      - name: Commit and Push if updated
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add gold.json
+          git commit -m "Auto-update gold and silver rates [skip ci]" || exit 0
+          git push

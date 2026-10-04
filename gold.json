@@ -1,0 +1,25 @@
+{
+  "status": "success",
+  "updated_at": "2026-10-04 08:23:47",
+  "source": "Hamro Patro / FENEGOSIDA",
+  "rates": [
+    {
+      "name": "Silver",
+      "symbol": "SILVER",
+      "date": "2026-10-02",
+      "prices": {
+        "1 tola": 4450,
+        "10 gms": 3815
+      }
+    },
+    {
+      "name": "HalMark Gold",
+      "symbol": "HALMARK",
+      "date": "2026-10-02",
+      "prices": {
+        "10 gms": 252745,
+        "1 tola": 294800
+      }
+    }
+  ]
+}
